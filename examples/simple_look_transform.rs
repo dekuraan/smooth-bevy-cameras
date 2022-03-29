@@ -1,4 +1,4 @@
-use bevy::prelude::*;
+use bevy::{prelude::*, render::camera::Camera3d};
 use smooth_bevy_cameras::{LookTransform, LookTransformBundle, LookTransformPlugin, Smoother};
 
 fn main() {
@@ -45,7 +45,7 @@ fn setup(
             },
             smoother: Smoother::new(0.9),
         })
-        .insert_bundle(PerspectiveCameraBundle {
+        .insert_bundle(PerspectiveCameraBundle::<Camera3d> {
             transform: Transform::from_xyz(-2.0, 2.5, 5.0)
                 .looking_at(Vec3::new(0.0, 0.5, 0.0), Vec3::Y),
             ..Default::default()

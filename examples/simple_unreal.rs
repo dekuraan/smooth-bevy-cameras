@@ -1,4 +1,4 @@
-use bevy::prelude::*;
+use bevy::{prelude::*, render::camera::Camera3d};
 use smooth_bevy_cameras::{
     controllers::unreal::{UnrealCameraBundle, UnrealCameraController, UnrealCameraPlugin},
     LookTransformPlugin,
@@ -43,7 +43,7 @@ fn setup(
 
     commands.spawn_bundle(UnrealCameraBundle::new(
         UnrealCameraController::default(),
-        PerspectiveCameraBundle::default(),
+        PerspectiveCameraBundle::<Camera3d>::default(),
         Vec3::new(-2.0, 5.0, 5.0),
         Vec3::new(0., 0., 0.),
     ));
